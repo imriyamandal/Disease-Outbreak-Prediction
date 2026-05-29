@@ -49,7 +49,14 @@ df = pd.read_csv("data/cleaned_dataset.csv")
 
 df['total_cases'] = df['total_cases'].fillna(0)
 
-model = joblib.load("models/xgboost_model.pkl")
+import os
+
+model_path = os.path.join(
+    "models",
+    "xgboost_model.pkl"
+)
+
+model = joblib.load(model_path)
 
 
 X = df.drop(
